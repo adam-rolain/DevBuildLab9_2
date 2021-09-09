@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Lab9_2MVCForm.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,9 @@ namespace Lab9_2MVCForm.Controllers
             return View();
         }
 
-        public IActionResult MyPage(string firstName, string lastName)
+        public IActionResult MyPage(Profile profile)
         {
-            ViewData["FirstName"] = firstName;
-            ViewData["LastName"] = lastName;
+            ViewData["Profile"] = profile;
 
             return View();
         }

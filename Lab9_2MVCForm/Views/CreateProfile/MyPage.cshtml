@@ -1,9 +1,10 @@
 ﻿
 @{
     ViewData["Title"] = "MyPage";
+    Profile profile = ViewData["Profile"] as Profile;
 }
 
-<h1>@ViewData["FirstName"] @ViewData["LastName"]</h1>
+<h1>@profile.FirstName @profile.LastName</h1>
 
 
 
