@@ -1,6 +1,8 @@
 ﻿
+@model Profile
 @{
     ViewData["Title"] = "CreateProfile";
+
 }
 
 <h1>Create Proile</h1>
@@ -8,8 +10,32 @@
 <br />
 
 <form method="post" action="/CreateProfile/MyPage">
-    <h3>First Name: </h3><input type="text" name="FirstName" />
-    <h3>Last Name: </h3><input type="text" name="LastName" />
+    @if (Model.FirstName != null || Model.LastName != null)
+    {
+        if (Model.FirstName != null)
+        {
+            <h3>First Name: </h3><input type="text" name="FirstName" value="@Model.FirstName" /><div style="color:red">@ViewData["NoFirstName"]</div>
+        }
+        else
+        {
+            <h3>First Name: </h3><input type="text" name="FirstName" /><div style="color:red">@ViewData["NoFirstName"]</div>
+        }
+        if (Model.LastName != null)
+        {
+            <h3>Last Name: </h3><input type="text" name="LastName" @Model.LastName value="@Model.LastName" /><div style="color:red">@ViewData["NoLastName"]</div>
+        }
+        else
+        {
+            <h3>Last Name: </h3><input type="text" name="LastName" /><div style="color:red">@ViewData["NoLastName"]</div>
+        }
+    }
+    else
+    {
+        <h3>First Name: </h3><input type="text" name="FirstName" /><div style="color:red">@ViewData["NoFirstName"]</div>
+        <h3>Last Name: </h3><input type="text" name="LastName" /><div style="color:red">@ViewData["NoLastName"]</div>
+    }
+
+
     <br /><br />
     <button type="submit">Submit</button>
 </form>

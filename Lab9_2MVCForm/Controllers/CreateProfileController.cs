@@ -14,14 +14,31 @@ namespace Lab9_2MVCForm.Controllers
             return View();
         }
 
-        public IActionResult CreateProfile()
+        public IActionResult CreateProfile(Profile profile)
         {
-            return View();
+            ViewData["NoFirstName"] = "";
+            ViewData["NoLastName"] = "";
+            return View(profile);
         }
 
         public IActionResult MyPage(Profile profile)
         {
-            return View(profile);
+            if (profile.FirstName == null || profile.LastName == null)
+            {
+                if (profile.FirstName == null)
+                {
+                    ViewData["NoFirstName"] = "You must input a First Name before submitting the form";
+                }
+                if (profile.LastName == null)
+                {
+                    ViewData["NoLastName"] = "You must input a Last Name before submitting the form";
+                }
+                return View("CreateProfile", profile);
+            }
+            else
+            {
+                return View(profile);
+            }
         }
     }
 }
