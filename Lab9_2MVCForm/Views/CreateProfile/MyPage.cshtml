@@ -1,10 +1,10 @@
 ﻿
+@model Profile
 @{
     ViewData["Title"] = "MyPage";
-    Profile profile = ViewData["Profile"] as Profile;
 }
 
-<h1>@profile.FirstName @profile.LastName</h1>
+<h1>Thanks @Model.FirstName @Model.LastName! Your profile was created!</h1>
 
 
 

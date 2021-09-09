@@ -21,9 +21,7 @@ namespace Lab9_2MVCForm.Controllers
 
         public IActionResult MyPage(Profile profile)
         {
-            ViewData["Profile"] = profile;
-
-            return View();
+            return View(profile);
         }
     }
 }
